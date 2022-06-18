@@ -8,7 +8,7 @@ export default function Layout({ title, children }) {
     if (title) {
       return title;
     } else {
-      return 'Nasa App';
+      return 'Website NASA API';
     }
   }
 
