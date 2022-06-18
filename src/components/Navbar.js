@@ -38,9 +38,7 @@ export default function Navbar() {
           { block: navbarStatus, hidden: !navbarStatus },
         )}
       >
-        <NavLink href="/">Pureba</NavLink>
-        <NavLink href="/michael-liendo">Michael</NavLink>
-        <NavLink href="/portfolio"></NavLink>
+        <NavLink href="/">APOD</NavLink>
       </nav>
     </>
   );
