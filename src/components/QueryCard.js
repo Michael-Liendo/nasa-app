@@ -6,8 +6,7 @@ export default function QueryCard({ data }) {
   if (data.links) {
     src = data.links[0].href;
   } else {
-    src =
-      'https://images-assets.nasa.gov/video/jsc2017m001088_Top-17-Earth-Images-of-2017-MP4/jsc2017m001088_Top-17-Earth-Images-of-2017-MP4~thumb.jpg';
+    src = 'https://images-assets.nasa.gov/image/PIA00122/PIA00122~thumb.jpg';
   }
 
   return (
@@ -42,14 +41,16 @@ export default function QueryCard({ data }) {
             </div>
 
             <span className="block mt-2 space-x-4">
-              {data.data[0].keywords.map((items) => (
-                <span
-                  key={items}
-                  className="bg-green-300 text-green-800 px-2 py-1 text-xs rounded-lg"
-                >
-                  #{items}
-                </span>
-              ))}
+              {data.data[0]?.keywords
+                ? data.data[0].keywords.map((items) => (
+                    <span
+                      key={items}
+                      className="bg-green-300 text-green-800 px-2 py-1 text-xs rounded-lg"
+                    >
+                      #{items}
+                    </span>
+                  ))
+                : null}
             </span>
           </div>
         </div>

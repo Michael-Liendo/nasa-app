@@ -3,17 +3,28 @@ import Layout from '../components/Layout';
 import QueryCard from '../components/QueryCard';
 import { QueryAPhotos } from '../lib/nasa';
 
-export default function NasaImages({ data }) {
+export default function FindSomething({ nasaResponse }) {
   const [inputValue, setInputValue] = useState('Earth');
+  const [data, setData] = useState(nasaResponse);
 
   const getInputValue = (event) => {
     const userValue = event.target.value;
 
     setInputValue(userValue);
   };
+
+  async function findSomething() {
+    if (inputValue === '') {
+      return;
+    }
+    const data = await QueryAPhotos(inputValue);
+
+    setData(data);
+  }
+
   return (
     <Layout>
-      <h1 className="text-5xl my-5 text-white text-center">Find a photos</h1>
+      <h1 className="text-5xl my-5 text-white text-center">Find Something</h1>
       <div className="flex">
         <input
           onChange={getInputValue}
@@ -23,7 +34,10 @@ export default function NasaImages({ data }) {
           placeholder="Find something"
           required
         />
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        <button
+          onClick={findSomething}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
           Find
         </button>
       </div>
@@ -38,8 +52,8 @@ export default function NasaImages({ data }) {
 }
 
 export async function getServerSideProps() {
-  const data = await QueryAPhotos('Earth');
+  const nasaResponse = await QueryAPhotos('Earth');
   return {
-    props: { data },
+    props: { nasaResponse },
   };
 }

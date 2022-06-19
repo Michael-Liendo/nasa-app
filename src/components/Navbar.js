@@ -40,7 +40,7 @@ export default function Navbar() {
       >
         <NavLink href="/">APOD</NavLink>
         <NavLink href="/mars">Mars</NavLink>
-        <NavLink href="/query">query</NavLink>
+        <NavLink href="/find">Find</NavLink>
       </nav>
     </>
   );
