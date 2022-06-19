@@ -21,3 +21,11 @@ export async function MarsPhotos() {
 
   return data.photos;
 }
+
+export async function QueryAPhotos(query) {
+  const res = await fetch(`https://images-api.nasa.gov/search?q=${query}`);
+
+  const data = await res.json();
+
+  return data.collection.items.slice(0, 13);
+}
