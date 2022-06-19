@@ -26,7 +26,7 @@ export default function QueryCard({ data }) {
           <div className="flex-1">
             <span className="block mt-2">
               <span className="text-xs font-medium text-gray-600">
-                {data.data[0].data_created}
+                {data.data[0].date_created}
               </span>
             </span>
             <div className="block mt-2">

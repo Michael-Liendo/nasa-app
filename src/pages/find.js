@@ -4,7 +4,7 @@ import QueryCard from '../components/QueryCard';
 import { QueryAPhotos } from '../lib/nasa';
 
 export default function FindSomething({ nasaResponse }) {
-  const [inputValue, setInputValue] = useState('Earth');
+  const [inputValue, setInputValue] = useState('Solar system');
   const [data, setData] = useState(nasaResponse);
 
   const getInputValue = (event) => {
@@ -52,7 +52,7 @@ export default function FindSomething({ nasaResponse }) {
 }
 
 export async function getServerSideProps() {
-  const nasaResponse = await QueryAPhotos('Earth');
+  const nasaResponse = await QueryAPhotos('Solar System');
   return {
     props: { nasaResponse },
   };

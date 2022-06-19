@@ -27,5 +27,5 @@ export async function QueryAPhotos(query) {
 
   const data = await res.json();
 
-  return data.collection.items.slice(0, 13);
+  return data.collection.items;
 }
